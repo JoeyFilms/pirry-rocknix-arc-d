@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.log
+*.tmp
+*.new
+.yabasanshiro/
+keymapv2.json
+retroachievements.cfg
+*.chd
+*.iso
+*.cue
+*.bin
+*.previous-*
+*.backup-*
+.DS_Store
+Thumbs.db

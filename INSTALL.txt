@@ -1,0 +1,118 @@
+Pirry Complete — one installer for RG ARC-D
+Emulator: original Pirry 1.6.2 | Package: 1.0
+Supported official ROCKNIX versions: 20261001 and 20261101
+
+START HERE — NO SSH, NO OTHER PIRRY PACKAGES REQUIRED
+1. Extract this ZIP into the games card's ports folder. The layout must be:
+     ports/Install-Saturn-Pirry.sh
+     ports/Disable-Pirry-in-Saturn.sh
+     ports/pirry-arc/...
+   Do not leave the files inside an extra ZIP-name folder.
+2. Connect the ARC-D to Wi-Fi. Press START > Game Settings > Update Gamelists.
+3. Run Ports > Install-Saturn-Pirry. Allow it to finish before powering off.
+4. Restart ROCKNIX normally using its Restart menu.
+5. START > Game Settings > Per System Advanced Configuration > Saturn.
+   Select Emulator: pirry, and Core: pirry if a core choice appears.
+6. Launch your games directly from the normal Saturn section.
+
+That is the complete installation. Do NOT install the older menu add-on or
+controller-repair ZIP afterward: their working components are already included.
+The second Ports entry is an optional disable action, not an installation step.
+Existing users can run this installer too; it keeps matching 1.6.2 executables,
+saves and custom controls, and backs up changed helpers or older executables.
+If your existing setup already works, there is no need to reinstall it.
+
+GAMES AND ARTWORK
+Put your own Saturn game dumps in the normal saturn folder. CHD is recommended
+for a first test; normal Saturn file-extension support remains unchanged.
+Use the usual Saturn scraper for box art and descriptions. Existing Saturn
+artwork, metadata, favourites and play history remain attached to their games.
+No per-game Ports shortcuts are created or needed. Games added later appear
+in Saturn after updating game lists; there is no need to reinstall Pirry.
+Optional BIOS files go in the normal bios folder: saturn_bios.bin, sega_101.bin,
+mpr-17933.bin or sega1003.bin. No games, artwork or BIOS files are included.
+
+WHAT THIS SINGLE INSTALLER INCLUDES
+- Downloads the author's original 1.6.2 ARM64 release directly from GitHub.
+- Verifies its checksum and native dependencies; keeps an existing matching
+  install and backs up an older nonempty executable before replacing it.
+- Installs the ROCKNIX launcher and both official ARC six-button mappings.
+- Recognizes rg_arc_joypad on the older firmware and InputPlumber's virtual
+  DualSense controller on 20261101. The latter is the built-in ARC interface,
+  even if you have never connected a PlayStation controller.
+- Backs up the old control mapping on a change of interface, then uses the
+  matching layout. Custom mappings are preserved on subsequent same-interface
+  launches. Old physical-controller customizations stay in their backup.
+- Adds pirry to the existing Saturn system while retaining stock emulator
+  choices. Uses a private generated copy of the installed ROCKNIX launch code.
+- Checks copied files and flushes data to disk before reporting success.
+
+The stock emulator and /usr and /etc files are not overwritten. Voltage,
+overclock and thermal settings are not changed. No global emulator settings
+file is edited while EmulationStation is running; select pirry once in the
+menu after restarting, as described above. Per-game emulator overrides still
+win: set them to Auto or pirry if a particular game starts another emulator.
+Pirry-specific settings remain in Pirry's in-game menu. Select opens the menu;
+Select+Start exits. Old save states may be incompatible; boot a game normally
+for the first test. Sound DSP in 1.6.2 is on by default and can cost speed.
+
+SHARING
+Share this ZIP unchanged. Each friend runs it on their own supported ARC-D.
+It contains no personal saves, settings or achievements login tokens. Do not
+share your installed /storage/.yabasanshiro folder, which may contain tokens.
+This package replaces the three earlier installation/repair packages.
+It pins 1.6.2; rerunning it does not automatically install future GitHub releases.
+
+IF SOMETHING FAILS
+Open Pirry-Install.log directly in the games card's ports folder. Every stage
+and explicit failure is logged there. For a game launch failure, also inspect:
+  /storage/.config/yabasanshiro-pirry/last-launch.log
+Program files: /storage/.config/yabasanshiro-pirry/
+Pirry settings/saves: /storage/.yabasanshiro/
+The first controller test should be done with external controllers disconnected.
+Existing conflicting custom Saturn launch definitions are preserved, and the
+installer reports the conflict instead of silently replacing them.
+Only the two listed firmware releases and ARC-D are supported. Future firmware
+updates can change controller/launch behavior and need checking first.
+If normal Saturn gameplay hard-reboots the device, resolve the stock firmware's
+stability/thermal issue before testing Pirry; this installer does not address
+hardware thermal settings. ROCKNIX ARC documentation:
+https://rocknix.org/devices/anbernic/rgarc/
+
+DISABLE / REMOVE
+Run Ports > Disable-Pirry-in-Saturn, then restart ROCKNIX. Original Saturn
+emulator choices return; saves, settings and installed Pirry files remain.
+You can also switch Saturn back to a stock emulator in the system menu.
+Do not delete /storage/.yabasanshiro unless you intend to remove its saved data.
+
+OFFLINE ALTERNATIVE
+On a PC, download yabasanshiro-pirry from the exact v1.6.2 dArkOS release:
+https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/tag/v1.6.2
+Put it next to Install-Saturn-Pirry.sh and run the same installer. The executable
+is not bundled here, so online installs need Wi-Fi for the approximately 5 MB
+download. Expected size: 4,891,960 bytes. Expected SHA-256:
+59d6fde43ac128bf219dec09f41bcc9a43915cd09b6af880d5d6cd119a179552
+The upstream ArkOS build is a different file; use the exact release above.
+
+VALIDATION AND LIMITS
+The original Pirry 1.6.2 installation and updated controller helper were
+confirmed working by the user during this troubleshooting session. Native
+Saturn integration was checked against the firmware source and locally tested.
+The combined installer has been tested locally on simulated clean systems for
+both firmware versions, including reinstallation, mapping selection, saved
+settings, native menu generation, executable backup and invalid-download /
+unsupported-firmware refusal. Hardware SDL enumeration and native executable
+execution were mocked in those combined tests. The combined package still
+needs its first complete installation test on an actual friend's ARC-D.
+
+LICENSE / SOURCES
+GPL-2.0-or-later. Launcher/helper source and GPL text are included.
+Generated runemu-pirry.sh retains the installed launcher copyright notices.
+Pirry/YabaSanshiro/Yabause: pirrypirrypirry, devMiyax and Yabause contributors.
+https://github.com/pirrypirrypirry/yabasanshiro-pirry
+https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/tag/v1.6.2
+Controller mappings and native launcher/menu support: ROCKNIX contributors.
+https://github.com/ROCKNIX/distribution/tree/20261101/projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa
+https://github.com/ROCKNIX/distribution/blob/20261101/projects/ROCKNIX/devices/RK3566/filesystem/usr/share/inputplumber/devices/01-rg-arc.yaml
+https://github.com/ROCKNIX/distribution/blob/20261001/projects/ROCKNIX/packages/emulators/standalone/yabasanshiro-sa/config/devices/keymapv2_rg_arc_joypad.json
+https://github.com/ROCKNIX/emulationstation-next
