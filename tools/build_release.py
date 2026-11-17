@@ -12,7 +12,7 @@ import zipfile
 def main():
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=root / 'downloads/Pirry-Complete-1.6.2-ARC-D.zip')
+    parser.add_argument('--output', type=Path, default=root / 'downloads/Pirry-Complete-1.6.3-ARC-D.zip')
     args = parser.parse_args()
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)

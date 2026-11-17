@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.0-beta.1 — Pirry 1.6.3
+
+- Pin and verify the upstream ARM64 executable from the `v1.6.3_dArkOS` release.
+- Update the installer ZIP for new installs and upgrades from 1.6.2.
+- Retain the ROCKNIX 20261001 and 20261101 firmware targets for RG ARC-D.
+- Gameplay on the handheld is pending for 1.6.3.
+
 ## v1.0.0-beta.1 — first prepared public integration release
 
 - Combine the Pirry 1.6.2 installer, Saturn menu integration and controller repair into one install action.

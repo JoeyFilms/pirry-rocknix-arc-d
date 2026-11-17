@@ -1,6 +1,6 @@
 #!/bin/bash
 # SPDX-License-Identifier: GPL-2.0-or-later
-# Complete installer 1.0: original Pirry 1.6.2, ARC controls and native Saturn entry.
+# Complete installer 1.1: original Pirry 1.6.3, ARC controls and native Saturn entry.
 set -e
 HERE=$(cd -- "$(dirname -- "$0")" && pwd)
 LOG="$HERE/Pirry-Install.log"
@@ -9,7 +9,7 @@ exec >>"$LOG" 2>&1
 trap 'rc=$?; echo "FAILED at line $LINENO (exit $rc): $BASH_COMMAND"; sync; exit "$rc"' ERR
 fail() { echo "FAILED: $*"; sync; exit 1; }
 date
-echo 'Pirry Complete installer 1.0 / emulator 1.6.2'
+echo 'Pirry Complete installer 1.1 / emulator 1.6.3'
 [[ $(uname -m) == aarch64 ]] || fail 'Run this on an aarch64 RG ARC-D.'
 cat /etc/os-release
 grep -qi ROCKNIX /etc/os-release || fail 'ROCKNIX required.'
@@ -26,16 +26,16 @@ done
 mkdir -p "$DEST"
 echo '[1/5] Getting and verifying the emulator'
 BIN="$DEST/yabasanshiro-pirry"
-EXPECTED=59d6fde43ac128bf219dec09f41bcc9a43915cd09b6af880d5d6cd119a179552
+EXPECTED=d552c99b224413eb661c4b5b7eb0865e0f0096c2110c47b6cfdec4095b6f4715
 verify() { [[ -f $1 ]] && [[ $(sha256sum "$1" | cut -d' ' -f1) == "$EXPECTED" ]]; }
 if ! verify "$BIN"; then
     if verify "$HERE/yabasanshiro-pirry"; then
         cp "$HERE/yabasanshiro-pirry" "$BIN.download"
     else
         command -v curl >/dev/null || fail 'curl is missing. See README for offline installation.'
-        echo 'Downloading the original GitHub v1.6.2 release (about 5 MB).'
+        echo 'Downloading the original GitHub v1.6.3 release (about 5 MB).'
         curl --fail --location --retry 2 --connect-timeout 20 --max-time 180 \
-          https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/download/v1.6.2/yabasanshiro-pirry \
+          https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/download/v1.6.3_dArkOS/yabasanshiro-pirry \
           -o "$BIN.download"
     fi
     verify "$BIN.download" || fail 'Downloaded emulator checksum mismatch; previous executable preserved.'
@@ -50,7 +50,7 @@ if ! verify "$BIN"; then
     sync
     mv "$BIN.download" "$BIN"
 else
-    echo 'Verified 1.6.2 already installed; keeping it.'
+    echo 'Verified 1.6.3 already installed; keeping it.'
 fi
 chmod +x "$BIN"
 echo '[2/5] Installing the combined launcher and controller helpers'
@@ -75,7 +75,7 @@ echo '[4/5] Preparing the matching ARC controller layout'
 python3 "$DEST/prepare-controls.py" "$DEST/arc-keymap.json" || fail 'Controller preparation failed. See details above; disconnect external controllers and retry if ambiguous.'
 echo '[5/5] Adding Pirry to the original Saturn emulator list'
 python3 "$DEST/integrate.py" enable || fail 'Emulator installed, but Saturn menu integration failed. Existing custom configurations are preserved; see details above.'
-printf '%s\n' '1.6.2' > "$DEST/installed-version.txt"
+printf '%s\n' '1.6.3' > "$DEST/installed-version.txt"
 sync
 echo 'SUCCESS: Emulator, controller support and native Saturn integration installed.'
 echo 'Restart ROCKNIX normally, then START > Game Settings > Per System Advanced Configuration > Saturn.'

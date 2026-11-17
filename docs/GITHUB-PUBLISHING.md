@@ -10,7 +10,7 @@ Suggested repository: **`JoeyFilms/pirry-rocknix-arc-d`**.
 2. Open [Create a new repository](https://github.com/new?name=pirry-rocknix-arc-d&visibility=public).
 3. Select **JoeyFilms** as the owner.
 4. Use repository name **`pirry-rocknix-arc-d`**.
-5. Suggested description: **One-step Pirry 1.6.2 installer and native Saturn integration for RG ARC-D on ROCKNIX.**
+5. Suggested description: **One-step Pirry 1.6.3 installer and native Saturn integration for RG ARC-D on ROCKNIX.**
 6. Choose **Public** so friends can read/download without access invitations.
 7. Enable **Add a README file**. Leave automatic license and .gitignore choices empty; the prepared project supplies both.
 8. Click **Create repository**.
@@ -41,7 +41,7 @@ After upload, the repository root should include:
 |---|---|
 | `README.md` | Front page and download link |
 | `docs/SETUP.md` | Detailed handheld setup instructions |
-| `downloads/Pirry-Complete-1.6.2-ARC-D.zip` | File friends install |
+| `downloads/Pirry-Complete-1.6.3-ARC-D.zip` | File friends install |
 | `Install-Saturn-Pirry.sh` | Installer source |
 | `pirry-arc/` | Launcher, mappings and integration source |
 | `LICENSE` and `CREDITS.md` | License and upstream attribution |
@@ -70,14 +70,14 @@ The repository README becomes the project page automatically. A separate GitHub 
 The front-page download will already work after the files are uploaded, because the installer ZIP is in `downloads/`. A formal GitHub Release is useful as an additional versioned download page.
 
 1. Open your repository's **Releases** section and choose **Draft a new release**.
-2. Create tag **`v1.0.0-beta.1`**, targeting **`main`**.
-3. Title: **Pirry Complete for ARC-D — installer v1.0.0-beta.1**.
+2. Create tag **`v1.1.0-beta.1`**, targeting **`main`**.
+3. Title: **Pirry Complete for ARC-D — installer v1.1.0-beta.1**.
 4. Paste the prepared text from **`docs/RELEASE-NOTES.md`**.
-5. Attach **`Pirry-Complete-1.6.2-ARC-D.zip`** from the pack's `github-project/downloads/` folder. Attach `SHA256SUMS` too if desired.
+5. Attach **`Pirry-Complete-1.6.3-ARC-D.zip`** from the pack's `github-project/downloads/` folder. Attach `SHA256SUMS` too if desired.
 6. Mark it as a **pre-release** for the initial independent installation test.
 7. Publish when ready, or save a draft for review.
 
-The tag versions **your integration package**. It does not claim you authored or released the upstream Pirry emulator. That emulator's version remains **1.6.2**.
+The tag versions **your integration package**. It does not claim you authored or released the upstream Pirry emulator. That emulator's version remains **1.6.3**.
 
 Official reference: [Managing GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
 

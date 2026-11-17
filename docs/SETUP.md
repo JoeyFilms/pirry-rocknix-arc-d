@@ -1,6 +1,6 @@
 # Detailed setup: Pirry Complete on RG ARC-D
 
-This guide installs the original **Pirry 1.6.2** emulator, the correct ARC controller support and a selectable **pirry** entry inside ROCKNIX's normal **Saturn** section. It is a single installation: no separate menu patch, controller repair or SSH session is required.
+This guide installs the original **Pirry 1.6.3** emulator, the correct ARC controller support and a selectable **pirry** entry inside ROCKNIX's normal **Saturn** section. It is a single installation: no separate menu patch, controller repair or SSH session is required.
 
 ## 1. Check your ROCKNIX version
 
@@ -34,7 +34,7 @@ This integration package does not flash ROCKNIX or perform those device changes.
 
 ## 2. Get the complete Pirry installer
 
-Download **`Pirry-Complete-1.6.2-ARC-D.zip`** from this project's download link or release assets. The installer ZIP is the file intended for the handheld; a GitHub-generated source-code archive is the project source and has a different directory layout.
+Download **`Pirry-Complete-1.6.3-ARC-D.zip`** from this project's download link or release assets. The installer ZIP is the file intended for the handheld; a GitHub-generated source-code archive is the project source and has a different directory layout.
 
 You also need:
 
@@ -100,7 +100,7 @@ Use BIOS files you have obtained yourself. The wrapper uses the first matching f
 5. Select **Install-Saturn-Pirry**.
 6. Wait until it returns to the menu. Do not switch off the handheld during installation.
 
-The installer performs five stages: verifies/downloads 1.6.2, installs helpers, checks dependencies, prepares the matching controls, and adds the normal Saturn emulator entry. It logs progress to **`Pirry-Install.log` directly in `ports`**. If the entry returns immediately or the next steps fail, read that log before reinstalling repeatedly.
+The installer performs five stages: verifies/downloads 1.6.3, installs helpers, checks dependencies, prepares the matching controls, and adds the normal Saturn emulator entry. It logs progress to **`Pirry-Install.log` directly in `ports`**. If the entry returns immediately or the next steps fail, read that log before reinstalling repeatedly.
 
 You do not need to run anything called Enable-Pirry or Repair-Pirry-Controls. Those old separate patches have been incorporated.
 
@@ -133,7 +133,7 @@ When moving from the old raw interface to the virtual one, the helper backs up y
 
 Games stay in the original Saturn section, so existing artwork, descriptions and favourites remain available. For new artwork, use ROCKNIX's normal [scraping tools](https://rocknix.org/configure/scraper/). This installer does not download artwork itself.
 
-Pirry 1.6.2 enables sound DSP globally by default. If speed or heat worsens, try **DSP Off** in Pirry's sound menu. Resolution and aspect ratio are also configured in Pirry; not every stock emulator option is connected to this wrapper.
+Pirry has a global sound DSP setting. If speed or heat worsens, try **DSP Off** in Pirry's sound menu. Resolution and aspect ratio are also configured in Pirry; not every stock emulator option is connected to this wrapper.
 
 First establish that ordinary ROCKNIX games run reliably. An ARC-D in our troubleshooting session hard-reset under Saturn load until a stable undervolt was configured. ROCKNIX documents three undervolt levels; stability varies by unit. Keep overclock disabled while diagnosing reboots and follow the [official ARC tweaks documentation](https://rocknix.org/devices/anbernic/rgarc/#tweaks). The installer itself changes no voltage or clock settings.
 
@@ -166,7 +166,7 @@ The launch log appends sessions, so its latest lines are usually the useful part
 
 ## Updates, old installations and disabling
 
-- This package pins **Pirry 1.6.2**. Running it again does not automatically install a newer GitHub release.
+- This package pins **Pirry 1.6.3**. Running it again does not automatically install a newer GitHub release.
 - Reinstallation keeps a matching executable, preserves saved data and refreshes the helpers/menu integration. Changed helpers and older executables are backed up.
 - Do not install old separate controller/menu ZIPs afterward; they can replace updated helpers.
 - Future ROCKNIX releases need compatibility checking. The installer targets exact versions intentionally.
@@ -175,14 +175,14 @@ The launch log appends sessions, so its latest lines are usually the useful part
 
 ## Offline option
 
-Download the original executable named `yabasanshiro-pirry` from the exact [v1.6.2 dArkOS release](https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/tag/v1.6.2). Put it beside `Install-Saturn-Pirry.sh` and run the same installer. Do not choose the separate ArkOS build.
+Download the original executable named `yabasanshiro-pirry` from the exact [v1.6.3 dArkOS release](https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/tag/v1.6.3_dArkOS). Put it beside `Install-Saturn-Pirry.sh` and run the same installer. Do not choose the separate ArkOS build.
 
 Expected size: **4,891,960 bytes**. Expected SHA-256:
 
 ```text
-59d6fde43ac128bf219dec09f41bcc9a43915cd09b6af880d5d6cd119a179552
+d552c99b224413eb661c4b5b7eb0865e0f0096c2110c47b6cfdec4095b6f4715
 ```
 
 ## Verification status
 
-Pirry 1.6.2 and the newer controller helper were confirmed working on the user's ARC-D. The combined installer was tested on simulated clean systems for both target versions, including reinstallation, saved controls, native menu generation and failed downloads. Native execution and hardware enumeration were mocked in those combined tests. The entire combined fresh-install process still needs an independent handheld test; no blanket game compatibility or performance guarantee is implied.
+Pirry 1.6.2 and the newer controller helper were confirmed working on the ARC-D. The 1.6.3 binary has the same declared shared-library and version requirements. The 1.6.3 installer update was checked locally and still needs gameplay testing on an ARC-D.

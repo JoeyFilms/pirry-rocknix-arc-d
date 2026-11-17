@@ -1,10 +1,10 @@
 # Pirry Complete for ROCKNIX on RG ARC-D
 
-Install **Pirry 1.6.2** into the normal **Saturn** section on the **Anbernic RG ARC-D** with one installer. Keep the usual Saturn game entries, box art, descriptions and favourites—no per-game Ports shortcuts or separate controller patches are needed.
+Install **Pirry 1.6.3** into the normal **Saturn** section on the **Anbernic RG ARC-D** with one installer. Keep the usual Saturn game entries, box art, descriptions and favourites—no per-game Ports shortcuts or separate controller patches are needed.
 
-This is an **unofficial ROCKNIX integration**, not a new emulator fork. It downloads the original emulator from [pirrypirrypirry's release](https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/tag/v1.6.2).
+This is an **unofficial ROCKNIX integration**, not a new emulator fork. It downloads the original emulator from [pirrypirrypirry's release](https://github.com/pirrypirrypirry/yabasanshiro-pirry-release/releases/tag/v1.6.3_dArkOS).
 
-**[Download the complete installer ZIP](https://github.com/JoeyFilms/pirry-rocknix-arc-d/raw/refs/heads/main/downloads/Pirry-Complete-1.6.2-ARC-D.zip)** · **[Detailed setup guide](docs/SETUP.md)** · **[Troubleshooting](docs/SETUP.md#troubleshooting)**
+**[Download the complete installer ZIP](https://github.com/JoeyFilms/pirry-rocknix-arc-d/raw/refs/heads/main/downloads/Pirry-Complete-1.6.3-ARC-D.zip)** · **[Detailed setup guide](docs/SETUP.md)** · **[Troubleshooting](docs/SETUP.md#troubleshooting)**
 
 ## Compatibility
 
@@ -13,7 +13,7 @@ This is an **unofficial ROCKNIX integration**, not a new emulator fork. It downl
 | Handheld | **Anbernic RG ARC-D** |
 | Main documented firmware | **Official ROCKNIX 20261101**, RK3566 aarch64 Generic image |
 | Also supported by the installer | Official ROCKNIX **20261001** |
-| Emulator downloaded | Original **Pirry v1.6.2**, ARM64/dArkOS release |
+| Emulator downloaded | Original **Pirry v1.6.3**, ARM64/dArkOS release |
 | Controls | Old raw ARC controls and 20261101's InputPlumber virtual controller |
 | Other hardware / firmware | Not validated; installer refuses other device/version targets |
 
@@ -34,7 +34,7 @@ You need **only this complete package**. Do not install the old menu add-on or c
 
 ## What is included
 
-- Verified upstream emulator download, pinned to 1.6.2.
+- Verified upstream emulator download, pinned to 1.6.3.
 - ARC six-button mappings for both supported firmware controller interfaces.
 - Automatic backup and mapping migration when the interface changes.
 - Saturn-only emulator integration, retaining the original emulator choices.
@@ -45,9 +45,11 @@ No games, BIOS, artwork, personal saves or login credentials are included. The e
 
 ## Updates and test status
 
-Rerunning this installer **does not fetch the newest upstream release**. It keeps or installs verified **1.6.2**. Supporting another emulator/firmware release requires an explicit package update and compatibility checks.
+Rerunning this installer **does not fetch the newest upstream release**. It keeps or installs verified **1.6.3**. Supporting another emulator/firmware release requires an explicit package update and compatibility checks.
 
-The original Pirry installation and controller repair were confirmed working during ARC-D testing. The combined installer passed local simulated installation tests for both firmware versions. Its first complete fresh-device installation still needs confirmation: treat the initial public release as a **beta** and report the exact firmware and log if something fails.
+To upgrade from 1.6.2, extract the new ZIP over the previous installer files and run **Install-Saturn-Pirry** again. The installer preserves the previous executable as a backup when it upgrades. Restart ROCKNIX after installation.
+
+Pirry 1.6.2 and the controller repair were confirmed working on the ARC-D. The 1.6.3 ARM64 binary has the same declared shared-library and version requirements as 1.6.2. This update remains a **beta** pending 1.6.3 gameplay testing on the handheld.
 
 ## More information
 

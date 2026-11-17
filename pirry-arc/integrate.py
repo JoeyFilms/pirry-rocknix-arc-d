@@ -21,6 +21,7 @@ COMMAND = ('/usr/bin/bash ' + BASE + '/runemu-pirry.sh %ROM% '
 KNOWN_BINARIES = {
     '3697285df5f6586b0f32185b7384a307c0406ef815b839d6a8519b97939d5e80',
     '59d6fde43ac128bf219dec09f41bcc9a43915cd09b6af880d5d6cd119a179552',
+    'd552c99b224413eb661c4b5b7eb0865e0f0096c2110c47b6cfdec4095b6f4715',
 }
 
 
@@ -99,7 +100,7 @@ def enable(root=Path('/')):
     program_dir = at(root, BASE)
     executable = program_dir / 'yabasanshiro-pirry'
     if not executable.is_file() or hashlib.sha256(executable.read_bytes()).hexdigest() not in KNOWN_BINARIES:
-        raise RuntimeError('Expected verified Pirry 1.6.1 or 1.6.2 from the previous kit. Install it first.')
+        raise RuntimeError('Expected a verified Pirry 1.6.1, 1.6.2 or 1.6.3 executable. Run the complete installer first.')
     if not (program_dir / 'run.sh').is_file() or not (program_dir / 'run.sh').stat().st_size:
         raise RuntimeError('Existing Pirry launcher is missing or empty.')
     user_dir = at(root, '/storage/.config/emulationstation')

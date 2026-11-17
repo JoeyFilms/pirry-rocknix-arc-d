@@ -5,7 +5,7 @@ BASE=$(cd -- "$(dirname -- "$0")" && pwd)
 LOG="$BASE/last-launch.log"
 exec >>"$LOG" 2>&1
 date
-echo 'Pirry 1.6.2 / ROCKNIX / RG ARC-D'
+echo 'Pirry 1.6.3 / ROCKNIX / RG ARC-D'
 fail() { echo "FAILED: $*"; exit 1; }
 [[ $(uname -m) == aarch64 ]] || fail 'An aarch64 handheld is required.'
 [[ -f /etc/os-release ]] && cat /etc/os-release
